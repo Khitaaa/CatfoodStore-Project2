@@ -1,0 +1,175 @@
+/* ==========================
+   CaninFit Navbar Style
+   ========================== */
+.navbar {
+  background: linear-gradient(135deg, #6fbf73 0%, #388e3c 100%);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.navbar-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0.8rem 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- Logo ---------- */
+.navbar-logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.07);
+}
+
+/* ---------- Search ---------- */
+.navbar-search {
+  flex: 1;
+  max-width: 450px;
+  margin: 0 2rem;
+}
+
+/* ---------- Menu ---------- */
+.navbar-menu {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Actions (Cart, User) ---------- */
+.navbar-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cart-button,
+.user-button {
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  width: 42px;
+  height: 42px;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.28s ease-in-out;
+}
+
+.cart-button:hover,
+.user-button:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(1.15) rotate(3deg);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff5252;
+  color: white;
+  font-size: 0.7rem;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 0 4px rgba(255, 82, 82, 0.7);
+}
+
+/* ---------- Mobile Menu ---------- */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* ---------- Mobile Styling ---------- */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-wrap: wrap;
+  }
+
+  .navbar-search {
+    order: 3;
+    flex-basis: 100%;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: linear-gradient(135deg, #6fbf73 0%, #388e3c 100%);
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.3s ease;
+  }
+
+  .navbar-menu.active {
+    left: 0;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .navbar-actions {
+    margin-left: auto;
+  }
+}

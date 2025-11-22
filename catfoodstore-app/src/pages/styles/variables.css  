@@ -1,0 +1,11 @@
+:root {
+  --primary: #E4002B;   /* Royal Canin red */
+  --primary-dark: #C8102E;
+  --primary-light: #ffebee;
+
+  --text-dark: #333;
+  --text-light: #fff;
+
+  --bg-light: #ffffff;
+  --bg-gray: #f7f7f7;
+}

@@ -1,0 +1,59 @@
+.navbar {
+  background: linear-gradient(135deg, #E4002B 0%, #C8102E 100%);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo span {
+  color: white;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.9);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.25);
+  color: white;
+}
+
+.nav-link.active {
+  background: rgba(255,255,255,0.3);
+}
+
+.icon-button {
+  color: white;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icon-button:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  background: #FF5252;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
