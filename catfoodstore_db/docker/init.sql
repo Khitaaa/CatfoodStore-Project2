@@ -68,3 +68,26 @@ VALUES
     'dry',
     'https://example.com/rc-urinary.jpg'
 );
+
+-- ===============================
+-- ตารางผู้ใช้ (Users)
+-- ===============================
+
+CREATE TYPE user_role AS ENUM ('admin', 'customer');
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,            -- (DEV MODE) เก็บ plaintext
+    role user_role NOT NULL DEFAULT 'customer',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ===============================
+-- ตัวอย่างข้อมูลผู้ใช้เริ่มต้น
+-- ===============================
+
+INSERT INTO users (email, password, role)
+VALUES
+('admin@example.com', 'admin123', 'admin'),
+('user@example.com', 'user123', 'customer');
