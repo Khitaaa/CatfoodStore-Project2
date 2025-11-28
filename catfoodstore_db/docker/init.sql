@@ -11,6 +11,7 @@ CREATE TABLE products (
     age_group VARCHAR(20) CHECK (age_group IN ('kitten', 'adult', 'special_care')),
     breed_type VARCHAR[] DEFAULT ARRAY['all'],
     category VARCHAR(20) CHECK (category IN ('dry', 'wet', 'snack')),
+    stock INT DEFAULT 0,
     image_url TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -36,7 +37,7 @@ EXECUTE FUNCTION update_modified_column();
 -- ตัวอย่างข้อมูลเริ่มต้น
 -- ===============================
 INSERT INTO products 
-(name, description, price, weight, age_group, breed_type, category, image_url)
+(name, description, price, weight, age_group, breed_type, category, stock, image_url)
 VALUES
 (
     'Royal Canin Kitten',
@@ -46,6 +47,7 @@ VALUES
     'kitten',
     '{"all"}',
     'dry',
+    250,
     'https://example.com/rc-kitten.jpg'
 ),
 (
@@ -56,6 +58,7 @@ VALUES
     'adult',
     '{"เปอร์เซีย","บริติชช็อตแฮร์"}',
     'dry',
+    80,
     'https://example.com/purina-adult.jpg'
 ),
 (
@@ -66,6 +69,7 @@ VALUES
     'special_care',
     '{"all"}',
     'dry',
+    120,
     'https://example.com/rc-urinary.jpg'
 );
 
