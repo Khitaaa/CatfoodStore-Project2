@@ -10,7 +10,7 @@ CREATE TABLE products (
     weight VARCHAR(50),
 
     age_group VARCHAR(20) 
-        CHECK (age_group IN ('kitten', 'adult', 'special_care')),
+        CHECK (age_group IN ('kitten', 'adult', 'senior')),
 
     breed_type VARCHAR[] DEFAULT ARRAY['all'],
 
@@ -114,7 +114,7 @@ VALUES
  'พลังงานสูง เสริมข้อต่อและหัวใจ เหมาะกับแมวตัวใหญ่',
  499, '2kg', 'adult', ARRAY['เมนคูน'], ARRAY['all'], 'dry', 30,
  'https://th-test-11.slatic.net/p/1879e104d61655504eba3d343d8003e4.jpg');
- 
+
 
 
 -- ===============================
@@ -126,14 +126,12 @@ CREATE TYPE user_role AS ENUM ('admin', 'customer');
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,            -- (DEV MODE) เก็บ plaintext
+    password VARCHAR(255) NOT NULL,            
     role user_role NOT NULL DEFAULT 'customer',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- ===============================
--- ตัวอย่างข้อมูลผู้ใช้เริ่มต้น
--- ===============================
+
 
 INSERT INTO users (email, password, role)
 VALUES

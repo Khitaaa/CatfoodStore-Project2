@@ -75,12 +75,14 @@ func (s *productService) Delete(ctx context.Context, id int64) error {
 }
 
 func validate(p *models.Product) error {
+	// ✔ ตรงตาม DB: kitten | adult | senior
 	switch p.AgeGroup {
-	case "kitten", "adult", "special_care":
+	case "kitten", "adult", "senior":
 	default:
 		return fmt.Errorf("%w: %s", ErrInvalidAgeGroup, p.AgeGroup)
 	}
 
+	// ✔ category ถูกต้อง
 	switch p.Category {
 	case "dry", "wet", "snack":
 	default:
